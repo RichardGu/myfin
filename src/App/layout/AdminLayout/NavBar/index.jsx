@@ -7,6 +7,7 @@ import DEMO from '../../../../store/constant';
 import * as actionTypes from '../../../../store/actions';
 import logo from '../../../../assets/images/logo.png';
 import { useSelector } from '../../../../store/reducer';
+
 const NavBar = () => {
     const dispatch = useDispatch();
     const { windowWidth } = useWindowSize();
@@ -45,15 +46,7 @@ const NavBar = () => {
         toggleClass = [...toggleClass, 'on'];
     }
     let mainLogo = logo;
-    let navHtml;
-    if (!rightToggle && windowWidth < 992) {
-        navHtml = '';
-    }
-    else {
-        navHtml = (<div className="collapse navbar-collapse d-flex">
-                <NavLeft />
-            </div>);
-    }
+    let navHtml = '';
     let navBar = (<>
             <div className="m-header">
                 <a className={toggleClass.join(' ')} id="mobile-collapse1" href={DEMO.BLANK_LINK} onClick={onToggleNavigation}>

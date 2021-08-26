@@ -1,6 +1,6 @@
 const Config = {
     defaultPath: '/nba/dashboard/default',
-    basename: '/',
+    basename: '',
     layout: 'vertical',
     subLayout: '',
     collapseMenu: false,

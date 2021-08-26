@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import Navigation from './Navigation';
 import NavBar from './NavBar';
 import Breadcrumb from './Breadcrumb';
+import Configuration from './Configuration';
 import Loader from '../Loader';
 import routes from '../../../routes';
 import useWindowSize from '../../../hooks/useWindowSize';
@@ -40,7 +41,7 @@ const AdminLayout = () => {
                 <div className={mainClass.join(' ')}>
                     <div className="pcoded-content">
                         <div className="pcoded-inner-content">
-                            <Breadcrumb />
+                        <Breadcrumb />
                             <div className="main-body">
                                 <div className="page-wrapper">
                                     <Suspense fallback={<Loader />}>
@@ -57,7 +58,6 @@ const AdminLayout = () => {
                     </div>
                 </div>
             </div>
-
         </>);
 };
 export default AdminLayout;

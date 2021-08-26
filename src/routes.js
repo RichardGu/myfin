@@ -12,7 +12,7 @@ const RecentGames = React.lazy(() => import('./nba/games'));
 const NBADashboard = React.lazy(() => import('./nba/dashboard'));
 
 const routes = [
-    { path: '/dashboard/default', exact: true, name: 'Analytics', component: DashboardDefault },
+    { path: '/nba/dashboard/default', exact: true, name: 'NBA Data Dashboard', component: NBADashboard },
     { path: '/nba/teams', exact: true, name: 'NBA Teams', component: NBATeams },
     { path: '/nba/players/all', exact: true, name: 'All NBA Players', component: NBAPlayers },
     { path: '/nba/players/:teamId', exact: true, name: 'NBA Players', component: NBATeam },

@@ -36,35 +36,35 @@ const Breadcrumb = (props) => {
     let title = 'Welcome';
     if (main && main.type === 'collapse') {
         main_ = (<li className="breadcrumb-item">
-                <a href={DEMO.BLANK_LINK}>{main.title}</a>
-            </li>);
+            <a href={DEMO.BLANK_LINK}>{main.title}</a>
+        </li>);
     }
     if (item && item.type === 'item') {
         title = item.title;
         item_ = (<li className="breadcrumb-item">
-                <a href={DEMO.BLANK_LINK}>{title}</a>
-            </li>);
+            <a href={DEMO.BLANK_LINK}>{title}</a>
+        </li>);
         if (item.breadcrumbs !== false) {
             breadcrumb = (<div className="page-header">
-                    <div className="page-block">
-                        <div className="row align-items-center">
-                            <div className="col-md-12">
-                                <div className="page-header-title">
-                                    <h5 className="m-b-10">{title}</h5>
-                                </div>
-                                <ul className="breadcrumb">
-                                    <li className="breadcrumb-item">
-                                        <Link to="/">
-                                            <i className="feather icon-home"/>
-                                        </Link>
-                                    </li>
-                                    {main_}
-                                    {item_}
-                                </ul>
+                <div className="page-block">
+                    <div className="row align-items-center">
+                        <div className="col-md-12">
+                            <div className="page-header-title">
+                                <h5 className="m-b-10">{title}</h5>
                             </div>
+                            <ul className="breadcrumb">
+                                <li className="breadcrumb-item">
+                                    <Link to="/">
+                                        <i className="feather icon-home" />
+                                    </Link>
+                                </li>
+                                {main_}
+                                {item_}
+                            </ul>
                         </div>
                     </div>
-                </div>);
+                </div>
+            </div>);
         }
     }
     document.title = title + ' | Able Pro Premium React + Redux Admin Template';

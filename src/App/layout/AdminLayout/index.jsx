@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import Navigation from './Navigation';
 import NavBar from './NavBar';
 import Breadcrumb from './Breadcrumb';
-import Configuration from './Configuration';
 import Loader from '../Loader';
 import routes from '../../../routes';
 import useWindowSize from '../../../hooks/useWindowSize';

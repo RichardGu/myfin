@@ -11,7 +11,7 @@ const NBAMoney = () => {
 
     const options = {
         method: 'GET',
-        url: 'http://localhost:5000/api/teams/' + teamId,
+        url: 'http://bitdoodle.net/api/teams/' + teamId,
         headers: {
         }
     };

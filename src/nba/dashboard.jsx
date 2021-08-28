@@ -108,7 +108,7 @@ const Dashboard = () => {
                                 </Col>
                                 <Col sm="auto">
                                     <h6 className="text-muted m-b-10">Higest Market Value Team 2021</h6>
-                                    <h2 className="m-b-0">Warrior</h2>
+                                    <h2 className="m-b-0">NY Nicks</h2>
                                 </Col>
                             </Row>
                         </Card.Body>
@@ -172,36 +172,12 @@ const Dashboard = () => {
                             <Chart {...absentChart}/>
                         </Card.Body>
                         <Card.Footer>
-                            <h6 className="text-muted m-b-30 m-t-15">Students Today's Attendance</h6>
-                            <Row className="row text-center">
-                                <Col className="border-right">
-                                    <h6 className="text-muted m-b-10">Total present student</h6>
-                                    <h3 className="">175</h3>
-                                </Col>
-                                <Col>
-                                    <h6 className="text-muted m-b-10">Total absent student</h6>
-                                    <h3 className="">76</h3>
-                                </Col>
-                            </Row>
+                            <h6 className="text-muted m-b-30 m-t-15">Team Market Values 2021 (In $billions)</h6>
                         </Card.Footer>
                     </Card>
                 </Col>
 
-                <Col sm={12}>
-                    <Card>
-                        <Card.Header>
-                            <Card.Title as="h5"><a href='https://www.nba.com/schedule?cal=October'>NBA Calendar 2021 - 2022</a></Card.Title>
-                        </Card.Header>
-                        <Card.Body className="calendar">
-                            <FullCalendar plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} headerToolbar={{
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        }} initialView="dayGridMonth" editable={true} selectable={true} selectMirror={true} dayMaxEvents={true} weekends={true} initialDate="2021-10-01" events={event} // alternatively, use the `events` setting to fetch from a feed
-    />
-                        </Card.Body>
-                    </Card>
-                </Col>
+               
             </Row>
         </>);
 };

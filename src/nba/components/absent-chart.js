@@ -29,8 +29,11 @@ const chartData = {
                 width: 1
             },
             labels: {
-                show: false
-            }
+                show: true
+            },
+            categories: ['ATL', 'BOS', 'BKN', 'CHA', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GSW', 'HOU', 
+                'IND', 'LAC', 'LAL','MEM', 'MIA', 'MIL', 'MIN', 'NOP', 'NYK', 'OKC', 'ORL', 'PHI', 'PHX',
+                'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS' ]
         },
         yaxis: {
             labels: {
@@ -56,7 +59,7 @@ const chartData = {
             y: {
                 title: {
                     formatter: function (seriesName) {
-                        return 'Total absent';
+                        return 'NBA Team Market Values';
                     }
                 }
             },
@@ -67,7 +70,9 @@ const chartData = {
     },
     series: [
         {
-            data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54, 25, 66, 41, 89, 63, 54, 25, 66, 41, 89, 63, 25, 44, 12, 36]
+            data: [1.52, 3.2, 2.65, 1.5, 3.3, 1.56, 2.45, 1.65, 1.45, 4.7, 2.5, 
+                1.55, 2.75, 4.6, 1.3, 2.0, 1.625, 1.4, 1.35, 5.0, 1.575, 1.46, 2.075, 1.7, 
+                1.9, 1.825, 1.85, 2.15, 1.66, 1.8]
         }
     ]
 };

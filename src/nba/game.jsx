@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { Row, Col, Card, Table } from 'react-bootstrap';
+import { Row, Col, Card, Alert, Table } from 'react-bootstrap';
 import axios from 'axios';
 import {useParams} from "react-router-dom";
 
@@ -8,12 +8,12 @@ const Cards = () => {
 
     const [stats, setStats] = useState([]);
     const [gameInfo, setGameInfo] = useState([]);
+    const [predictedWinner, setPredictedWinner] = useState();
+    const [predictStatus, setPredictStatus] = useState();
     const [playerStats, setPlayerStats] = useState([]);
     const [vTeam, setVTeamInfo] = useState([]);
     const [hTeam, setHTeamInfo] = useState([]);
-    const { gameId } = useParams()
-
-    //console.log('----', gameId);
+    const { gameId } = useParams();
 
     const options_game = {
         method: 'GET',
@@ -43,15 +43,18 @@ const Cards = () => {
             setVTeamInfo(response1.data.vTeam);
             setHTeamInfo(response1.data.hTeam);
 
+            if( response1.data.elo_pred > 0.5 ) {
+                setPredictedWinner(response1.data.hTeam.fullName);
+            } else {
+                setPredictedWinner(response1.data.vTeam.fullName);
+            }
+
             const response2 = await axios.request(options_team_stats);
-            //console.log('-- stats', response2);
             setStats(response2.data);
 
             const response3 = await axios.request(options_player_stats);
-            console.log('-- stats', response3.data);
             setPlayerStats(response3.data);
 
-            console.log('****', playerStats);
         }
         fetchStatsData();
     }, [ gameId ]);
@@ -62,7 +65,9 @@ const Cards = () => {
                     <Col sm={12}>
                         <Card>
                             <Card.Header>
-                                <Card.Title as="h5">{vTeam.nickName} vs. {hTeam.nickName} @ {gameInfo.seasonYear}</Card.Title>
+                                <Card.Title as="h5">{vTeam.fullName} ({vTeam.teamId}) vs. {hTeam.fullName} ({hTeam.teamId})</Card.Title>
+                                <Card.Text> - Game ended @ UTC {gameInfo.endTimeUTC}</Card.Text>
+                                <Alert variant='warning'>ELO Score Predicted Winner: { predictedWinner}</Alert>
                             </Card.Header>
                             <Card.Body>
                                 <Table responsive>

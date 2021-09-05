@@ -2,11 +2,9 @@ import * as React from 'react';
 import Chart from 'react-apexcharts';
 import { Row, Col, Card } from 'react-bootstrap';
 import summaryChart from './components/summary-chart';
+import revenueChart from './components/nba-revenue';
 import absentChart from './components/absent-chart';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
+
 
 const Dashboard = () => {
     const event = [
@@ -77,8 +75,9 @@ const Dashboard = () => {
                                     <i className="fas fa-user-graduate f-36 text-c-purple"/>
                                 </Col>
                                 <Col sm="auto">
-                                    <h6 className="text-muted m-b-10">Most Expensive Team 2021</h6>
-                                    <h2 className="m-b-0">Warrior</h2>
+                                    <h6 className="m-b-10">Most Expensive Team 2021</h6>
+                                    <h2 className="m-b-0">Golden State Warrior</h2>
+                                    <h6 className="text-muted m-b-10">Although Warrior didn't make playoff last season, they ranked #2 most valuable team in NBA.</h6>
                                 </Col>
                             </Row>
                         </Card.Body>
@@ -92,8 +91,9 @@ const Dashboard = () => {
                                     <i className="fas fa-user-tie f-36 text-c-green"/>
                                 </Col>
                                 <Col sm="auto">
-                                    <h6 className="text-muted m-b-10">Highest Paid in 2022</h6>
+                                    <h6 className="m-b-10">Highest Paid in 2022</h6>
                                     <h2 className="m-b-0">Stephen Curry</h2>
+                                    <h6 className="text-muted m-b-10">Curry has been the top paid player for last 5 years and he is making almost double than Kobe Bryant a decade ago.</h6>
                                 </Col>
                             </Row>
                         </Card.Body>
@@ -107,8 +107,9 @@ const Dashboard = () => {
                                     <i className="fas fa-users f-36 text-c-red"/>
                                 </Col>
                                 <Col sm="auto">
-                                    <h6 className="text-muted m-b-10">Higest Market Value Team 2021</h6>
+                                    <h6 className="m-b-10">Higest Market Value Team 2021</h6>
                                     <h2 className="m-b-0">NY Knicks</h2>
+                                    <h6 className="text-muted m-b-10">NBA is a business. Remember! Even in years Knick was among the teams with lowest winning percentage, Knick has always had highest value.</h6>
                                 </Col>
                             </Row>
                         </Card.Body>
@@ -122,8 +123,9 @@ const Dashboard = () => {
                                     <i className="fas fa-book-open f-36 text-c-blue"/>
                                 </Col>
                                 <Col sm="auto">
-                                    <h6 className="text-muted m-b-10">ELO Score Prediction for 2020-2021 Games</h6>
+                                    <h6 className="m-b-0">ELO Score Prediction for 2020-2021 Games</h6>
                                     <h2 className="m-b-0">68%</h2>
+                                    <h6 className="text-muted m-b-10">We have tested all other complicated AI models beat this simple model.</h6>
                                 </Col>
                             </Row>
                         </Card.Body>
@@ -133,10 +135,21 @@ const Dashboard = () => {
                 <Col sm={12}>
                     <Card>
                         <Card.Header>
-                            <h5><a href='/nba/money'>NBA Top Salary 2000-2022</a></h5>
+                            <h5><a href='/nba/money'>NBA Top Salary 2000-2022 (in Million US Dollars)</a></h5>
                         </Card.Header>
                         <Card.Body>
                             <Chart {...summaryChart}/>
+                        </Card.Body>
+                    </Card>
+                </Col>
+
+                <Col sm={12}>
+                    <Card>
+                        <Card.Header>
+                            <h5><a href=''>NBA Total Revenue 2002-2020 (in Billion US Dollars)</a></h5>
+                        </Card.Header>
+                        <Card.Body>
+                            <Chart {...revenueChart}/>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -176,8 +189,7 @@ const Dashboard = () => {
                         </Card.Footer>
                     </Card>
                 </Col>
-
-               
+                
             </Row>
         </>);
 };

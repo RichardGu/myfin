@@ -2,21 +2,45 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { Card } from 'react-bootstrap';
+import { Card, Modal, Button, Form } from 'react-bootstrap';
 import NavGroup from './NavGroup';
 import DEMO from '../../../../../store/constant';
 import * as actionTypes from '../../../../../store/actions';
 import { useSelector } from '../../../../../store/reducer';
+import axios from 'axios';
+
 const NavContent = (props) => {
     const dispatch = useDispatch();
     const layout = useSelector((state) => state.able.layout);
     const rtlLayout = useSelector((state) => state.able.rtlLayout);
     const onNavContentLeave = () => dispatch({ type: actionTypes.NAV_CONTENT_LEAVE });
     const [data, setData] = useState({
+        isBasicModel: false,
         scrollWidth: 0,
         prevDisable: true,
         nextDisable: false
     });
+    const options_message_post = {
+        method: 'POST',
+        url: 'http://bitdoodle.net/api/message',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+    const [value, setValue] = useState(),
+        onInput = ({target:{value}}) => setValue(value),
+        onFormSubmit = e => {
+            e.preventDefault();
+            //console.log('---', value);
+            options_message_post['data'] = {
+                "data": value
+            }
+            axios.request(options_message_post).then(function (response) {
+                console.log('---', response.data);
+            });
+            setData({ ...data, isBasicModel: false });
+            alert('Message sent');
+        }
     const scrollPrevHandler = () => {
         const sidenavWrapper = document.getElementById('sidenav-wrapper');
         if (sidenavWrapper) {
@@ -54,6 +78,7 @@ const NavContent = (props) => {
                 return false;
         }
     });
+
     let scrollStyle = {
         marginLeft: '-' + data.scrollWidth + 'px'
     };
@@ -95,9 +120,27 @@ const NavContent = (props) => {
                         <li>
                             <Card className="text-center">
                                 <Card.Body>
-                                    <a href={DEMO.BLANK_LINK} rel="noopener noreferrer" className="btn btn-primary btn-sm text-white m-0">
+                                    <Button variant="primary" onClick={() => setData({ ...data, isBasicModel: true })}>
                                         Contact Me
-                                    </a>
+                                    </Button>
+                                    <Modal show={data.isBasicModel} onHide={() => setData({ ...data, isBasicModel: false })}>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title as="h5">Leave Me Message (Please include your email)</Modal.Title>
+                                        </Modal.Header>
+                                        <Form onSubmit={onFormSubmit}>
+                                        <Modal.Body>
+                                            <Form.Group controlId="form.Message">
+                                                <Form.Control type="textarea" placeholder="Enter message text ..." onChange={onInput} value={value}/>
+                                            </Form.Group>
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                            <Button variant="secondary" onClick={() => setData({ ...data, isBasicModel: false })}>
+                                                Close
+                                            </Button>
+                                            <Button variant="primary" type="submit">Submit</Button>
+                                        </Modal.Footer>
+                                        </Form>
+                                    </Modal>
                                 </Card.Body>
                             </Card>
                         </li>

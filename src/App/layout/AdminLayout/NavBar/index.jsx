@@ -52,8 +52,7 @@ const NavBar = () => {
                 <a className={toggleClass.join(' ')} id="mobile-collapse1" href={DEMO.BLANK_LINK} onClick={onToggleNavigation}>
                     <span />
                 </a>
-                <a href={DEMO.BLANK_LINK} className="b-brand">
-                    <img id="main-logo" src={mainLogo} alt="" className="logo"/>
+                <a href={DEMO.BLANK_LINK} className="b-brand">BitDoodle Data Analysis
                 </a>
                 <a className="mob-toggler" href={DEMO.BLANK_LINK} onClick={() => setRightToggle(!rightToggle)}>
                     <i className="feather icon-more-vertical"/>

@@ -88,8 +88,8 @@ const Dashboard = () => {
                     <Card>
                         <Card.Body>
                             <Row className="align-items-center m-l-0">
-                                <Col sm="auto">
-                                    <i className="fas fa-users f-36 text-c-red"/>
+                                <Col sm="auto">                                    
+                                    <i className="fas fa-user-tie f-36 text-c-green"/>
                                 </Col>
                                 <Col sm="auto">
                                     <h6 className="text-muted m-b-10">Highest Paid in 2022</h6>
@@ -104,11 +104,11 @@ const Dashboard = () => {
                         <Card.Body>
                             <Row className="align-items-center m-l-0">
                                 <Col sm="auto">
-                                    <i className="fas fa-user-tie f-36 text-c-green"/>
+                                    <i className="fas fa-users f-36 text-c-red"/>
                                 </Col>
                                 <Col sm="auto">
                                     <h6 className="text-muted m-b-10">Higest Market Value Team 2021</h6>
-                                    <h2 className="m-b-0">NY Nicks</h2>
+                                    <h2 className="m-b-0">NY Knicks</h2>
                                 </Col>
                             </Row>
                         </Card.Body>
@@ -122,8 +122,8 @@ const Dashboard = () => {
                                     <i className="fas fa-book-open f-36 text-c-blue"/>
                                 </Col>
                                 <Col sm="auto">
-                                    <h6 className="text-muted m-b-10">Subject</h6>
-                                    <h2 className="m-b-0">25</h2>
+                                    <h6 className="text-muted m-b-10">ELO Score Prediction for 2020-2021 Games</h6>
+                                    <h2 className="m-b-0">68%</h2>
                                 </Col>
                             </Row>
                         </Card.Body>

@@ -20,7 +20,7 @@ const NBATeams = () => {
 
     const options = {
         method: 'GET',
-        url: 'http://bitdoodle.net/api/teams'
+        url: 'http://localhost:5000/api/teams'
     };
  
     useEffect( () => {

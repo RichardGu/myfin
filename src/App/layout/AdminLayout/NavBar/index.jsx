@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import useWindowSize from '../../../../hooks/useWindowSize';
-import NavLeft from './NavLeft';
 import DEMO from '../../../../store/constant';
 import * as actionTypes from '../../../../store/actions';
 import logo from '../../../../assets/images/logo.png';
